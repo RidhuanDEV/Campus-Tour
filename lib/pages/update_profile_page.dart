@@ -64,7 +64,7 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                   radius: 80,
                   backgroundImage: _profileImage != null
                       ? FileImage(_profileImage!)
-                      : AssetImage('assets/profile.jpg') as ImageProvider,
+                      : const AssetImage('assets/profile.jpg') as ImageProvider,
                   child: _profileImage == null
                       ? Icon(
                           Icons.camera_alt,
