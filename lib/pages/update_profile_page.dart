@@ -29,7 +29,8 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
   }
 
   Future<void> _pickImage() async {
-    final pickedFile = await ImagePicker().pickImage(source: ImageSource.gallery);
+    final pickedFile =
+        await ImagePicker().pickImage(source: ImageSource.gallery);
     if (pickedFile != null) {
       setState(() {
         _profileImage = File(pickedFile.path);
@@ -113,11 +114,11 @@ class _UpdateProfilePageState extends State<UpdateProfilePage> {
                     if (_profileImage != null) {
                       globals.profileImagePath = _profileImage!.path;
                     }
-                    globals.currentindex = 1; 
+                    globals.currentindex = 1;
                     Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => const MainPage()),
-                );
+                      context,
+                      MaterialPageRoute(builder: (context) => const MainPage()),
+                    );
                   });
                 },
                 child: Text(

@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:app_1/global.dart' as globals;
@@ -31,12 +32,19 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 20),
-            Image.asset(
-              globals.profileImagePath ?? 'assets/profile.jpg',
-              width: 200,
-              height: 250,
-              fit: BoxFit.cover,
-            ),
+            globals.profileImagePath != null
+                ? Image.file(
+                    File(globals.profileImagePath!),
+                    width: 200,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  )
+                : Image.asset(
+                    'assets/profile.jpg',
+                    width: 200,
+                    height: 250,
+                    fit: BoxFit.cover,
+                  ),
             const SizedBox(height: 16),
             Text(
               globals.profileName ?? 'Ridhuan Rangga Kusuma',
@@ -55,7 +63,6 @@ class _ProfilePageState extends State<ProfilePage> {
                 color: textColor,
               ),
             ),
-            
           ],
         ),
       ),
