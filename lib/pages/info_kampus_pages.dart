@@ -35,33 +35,46 @@ class _InfoKampusState extends State<InfoKampus> {
 
     return Scaffold(
       backgroundColor: backgroundColor,
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            item['image'].isNotEmpty
-                ? Image.asset(
-                    item['image'],
-                    width: double.infinity,
-                    height: 400,
-                    fit: BoxFit.cover,
-                  )
-                : Container(),
-            const SizedBox(height: 20),
-            Text(
-              item['name'],
-              style: GoogleFonts.montserrat(
-                fontSize: 24,
-                color: textColor,
-                fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              item['image'].isNotEmpty
+                  ? Image.asset(
+                      item['image'],
+                      width: double.infinity,
+                      height: 400,
+                      fit: BoxFit.cover,
+                    )
+                  : Container(),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      item['name'],
+                      style: GoogleFonts.montserrat(
+                        fontSize: 24,
+                        color: textColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 10),
+                    Text(
+                      item['subtitle'],
+                      style: GoogleFonts.montserrat(
+                        fontSize: 18,
+                        color: textColor,
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(height: 10),
-            Text(
-              item['subtitle'],
-              style: GoogleFonts.montserrat(fontSize: 18, color: textColor),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Padding(
